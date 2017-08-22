@@ -180,7 +180,7 @@ public class MediaTranscoderEngine {
         mExtractor.selectTrack(trackResult.mAudioTrackIndex);
     }
 
-    private void runPipelines() {
+    private void runPipelines() throws InterruptedException {
         long loopCount = 0;
         if (mDurationUs <= 0) {
             double progress = PROGRESS_UNKNOWN;
@@ -202,7 +202,7 @@ public class MediaTranscoderEngine {
                 try {
                     Thread.sleep(SLEEP_TO_WAIT_TRACK_TRANSCODERS);
                 } catch (InterruptedException e) {
-                    // nothing to do
+                    throw e;
                 }
             }
         }
