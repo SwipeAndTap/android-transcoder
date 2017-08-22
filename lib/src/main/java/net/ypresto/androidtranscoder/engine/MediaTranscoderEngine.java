@@ -199,11 +199,7 @@ public class MediaTranscoderEngine {
                 if (mProgressCallback != null) mProgressCallback.onProgress(progress);
             }
             if (!stepped) {
-                try {
-                    Thread.sleep(SLEEP_TO_WAIT_TRACK_TRANSCODERS);
-                } catch (InterruptedException e) {
-                    throw e;
-                }
+                Thread.sleep(SLEEP_TO_WAIT_TRACK_TRANSCODERS);
             }
         }
     }
